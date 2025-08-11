@@ -1,0 +1,83 @@
+/* =========================
+   Global Color Variables
+   ========================= */
+:root {
+  --primary-color: #800020; /* Deep burgundy */
+  --secondary-color: #bd8180; /* Soft muted rose */
+  --light-color: #fff4f3; /* Very light pink/cream */
+  --accent-color: #f3eed9; /* Warm beige */
+}
+
+/* =========================
+   Font Imports
+   ========================= */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
+
+/* Libertinus Serif & Mozilla Text might require self-hosting or external link 
+   For now, using fallbacks if not available */
+body {
+  font-family: "Libertinus Serif", "Noto Serif", "Mozilla Text", "Roboto", serif;
+  background-color: var(--accent-color);
+  margin: 0;
+  padding: 0;
+  color: var(--primary-color);
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Noto Serif", "Libertinus Serif", serif;
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+/* Paragraphs */
+p {
+  font-family: "Roboto", sans-serif;
+  color: var(--secondary-color);
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Utility classes for background colors */
+.bg-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+.bg-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+.bg-light {
+  background-color: var(--light-color);
+}
+.bg-accent {
+  background-color: var(--accent-color);
+}
+
+/* Utility classes for text colors */
+.text-primary {
+  color: var(--primary-color);
+}
+.text-secondary {
+  color: var(--secondary-color);
+}
+.text-light {
+  color: var(--light-color);
+}
+.text-accent {
+  color: var(--accent-color);
+}
