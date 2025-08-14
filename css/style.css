@@ -1,83 +1,103 @@
-/* =========================
-   Global Color Variables
-   ========================= */
-:root {
-  --primary-color: #800020; /* Deep burgundy */
-  --secondary-color: #bd8180; /* Soft muted rose */
-  --light-color: #fff4f3; /* Very light pink/cream */
-  --accent-color: #f3eed9; /* Warm beige */
-}
-
-/* =========================
-   Font Imports
-   ========================= */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
-
-/* Libertinus Serif & Mozilla Text might require self-hosting or external link 
-   For now, using fallbacks if not available */
-body {
-  font-family: "Libertinus Serif", "Noto Serif", "Mozilla Text", "Roboto", serif;
-  background-color: var(--accent-color);
+* {
   margin: 0;
   padding: 0;
-  color: var(--primary-color);
 }
 
-/* Headings */
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: "Noto Serif", "Libertinus Serif", serif;
-  color: var(--primary-color);
-  margin-top: 0;
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url(https://montirex.com/cdn/shop/files/NEW-w-HP-DESKTOP-BANNER.jpg?v=1754636912&width=1800);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-/* Paragraphs */
-p {
-  font-family: "Roboto", sans-serif;
-  color: var(--secondary-color);
-  line-height: 1.6;
+nav {
+  background-color: white;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-/* Links */
-a {
-  color: var(--primary-color);
+nav ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav li {
+  height: auto;
+}
+
+nav a {
+  height: 100%;
+  padding: 0 30px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: black;
 }
 
-a:hover {
-  color: var(--secondary-color);
+nav a:hover {
+  background-color: #f0f0f0;
 }
 
-/* Utility classes for background colors */
-.bg-primary {
-  background-color: var(--primary-color);
-  color: white;
-}
-.bg-secondary {
-  background-color: var(--secondary-color);
-  color: white;
-}
-.bg-light {
-  background-color: var(--light-color);
-}
-.bg-accent {
-  background-color: var(--accent-color);
+nav ul li.logo img {
+  height: 80px; /* or whatever fits your navbar */
+  width: auto; /* keeps aspect ratio */
 }
 
-/* Utility classes for text colors */
-.text-primary {
-  color: var(--primary-color);
+nav li:first-child {
+  margin-right: auto;
 }
-.text-secondary {
-  color: var(--secondary-color);
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blue(10px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
-.text-light {
-  color: var(--light-color);
+
+.sidebar li {
+  width: 100%;
 }
-.text-accent {
-  color: var(--accent-color);
+
+.sidebar a {
+  width: 100%;
+}
+
+.menu-button {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .hideOnMobile {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  nav ul li.logo img {
+    height: 35px; /* or whatever fits your navbar */
+    width: auto; /* keeps aspect ratio */
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 60%;
+  }
 }
