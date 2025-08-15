@@ -1,3 +1,5 @@
+/* 1rem = 16px by default in most browsers */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,17 +8,12 @@
 body {
   min-height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url(https://montirex.com/cdn/shop/files/NEW-w-HP-DESKTOP-BANNER.jpg?v=1754636912&width=1800);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 nav {
   background-color: white;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  box-shadow: 0.1875rem 0.1875rem 0.3125rem rgba(0, 0, 0, 0.1); /* 3px 3px 5px */  
+
 }
 
 nav ul {
@@ -33,7 +30,7 @@ nav li {
 
 nav a {
   height: 100%;
-  padding: 0 30px;
+  padding: 0.75rem 0.75rem; /* 30px 30px */
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -45,28 +42,44 @@ nav a:hover {
 }
 
 nav ul li.logo img {
-  height: 80px; /* or whatever fits your navbar */
-  width: auto; /* keeps aspect ratio */
+  height: 3.5rem; /* 80px */
+  width: auto;
 }
 
 nav li:first-child {
+  margin-right: 2rem;
+  padding-left: 1rem;
+}
+
+nav li:nth-child(4) {
   margin-right: auto;
 }
+
+nav li:nth-last-child(2) {
+ padding-right: 2rem;
+}
+
 
 .sidebar {
   position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
-  width: 250px;
+  width: 15.625rem; /* 250px */
   z-index: 999;
   background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blue(10px);
-  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.625rem); /* 10px */
+  box-shadow: -0.625rem 0 0.625rem rgba(0, 0, 0, 0.1); /* -10px 0 10px */
   display: none;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+}
+
+.sidebar-bottom {
+  margin-top: auto; /* pushes this group to the bottom */
+  width: 100%;
+  padding-bottom: 0.5rem;
 }
 
 .sidebar li {
@@ -81,8 +94,87 @@ nav li:first-child {
   display: none;
 }
 
-@media (max-width: 767px) {
-  .hideOnMobile {
+/* Hide search bar initially */
+nav input[type="search"] {
+  display: none;
+  width: 0;
+  opacity: 0;
+  transition: width 2s ease, opacity 2s ease; /* 2 seconds */
+}
+
+nav input[type="search"].active {
+  display: inline-block;
+  width: 150px; /* adjust for desktop */
+  opacity: 1;
+}
+
+
+
+/******************************Hero Section******************************/
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  gap: 2rem;
+  min-height: 80vh;
+  background-color: #f8f9fa; /* light background */
+}
+
+.hero-left {
+  flex: 1;
+}
+
+.hero-left h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.hero-left p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: center;
+}
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-right img {
+  max-width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.hero-right img.fade-out {
+  opacity: 0;
+}
+
+/**Button**/
+
+.hero-left button {
+  display: block;
+  margin: 2rem auto 0 auto; /* top margin + center horizontally */
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+/*******************************************Media Query*****************************************/
+
+@media (max-width: 767px) { /* 767px */
+  .hideOnTablet {
     display: none;
   }
 
@@ -90,14 +182,88 @@ nav li:first-child {
     display: block;
   }
 
-  nav ul li.logo img {
-    height: 35px; /* or whatever fits your navbar */
-    width: auto; /* keeps aspect ratio */
+  nav a {
+    padding: 0.5rem 0.5rem; /* 12px 10px */
   }
+
+  nav ul {
+    justify-content: flex-start;
+  }
+
+  nav svg {
+    width: 1.25rem;  /* 20px */
+    height: 1.25rem; /* 20px */
+  }
+
+  nav li.logo {
+    margin-right: auto;
+  }
+
+  nav ul li.logo img {
+    height: 2rem; /* 10px */
+    width: auto;
+  }
+
+  nav li:first-child {
+    margin-right: auto;
+    padding-left: 0;
+  }
+
+  nav li:nth-last-child(2) {
+    padding-right: 0rem;
+  }
+
+  nav input[type="search"] {
+    width: 8rem; /* or 8rem for scalable size */
+  }
+
+  /**************************Hero Section **************************/
+    section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+   .hero-left {
+    padding: 0 1rem;
+  }
+
+  .hero-right {
+    margin-top: 1.5rem;
+  }
+
+
+  
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) { /* 480px */
+  .hideOnMobile {
+    display: none;
+  }
+  
   .sidebar {
     width: 60%;
   }
+  
+  nav input[type="search"] {
+    width: 6rem; /* even smaller on very small screens */
+  }
+
+  /**Hero Section**/
+
+  section {
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+  }
+
+  .hero-left {
+    order: 2; /* moves to bottom */
+    padding: 1rem;
+  }
+
+  .hero-right {
+    order: 1; /* moves to top */
+    margin-bottom: 1rem;
+  }
+
 }
