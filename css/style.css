@@ -247,11 +247,90 @@ nav input[type="search"].active {
 /***************************************FOOTER**********************************************/
 
 .footer {
-  background-color: black;
+  display: flex;
+  padding: 2rem;
+  background: #111;       /* dark footer */
+  color: #fff;            /* white text */
+  flex-wrap: wrap;        /* stack on small screens */
+  gap: 2rem;              /* spacing between columns */
 }
 
+.footer > div {
+  flex: 1;   
+  min-width: 200px;       /* prevents columns from shrinking too much */
+}
 
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
+.footer li {
+  margin: 8px 0;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #bbb;            /* muted link color */
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #fff;            /* brighter on hover */
+}
+
+/* Social media styles */
+.footer .social-media li {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+}
+
+.footer .social-media a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #bbb;
+}
+
+.footer .social-media a:hover {
+  color: #1da1f2; /* example: twitter blue hover */
+}
+
+.footer .social-media svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.footer .social-media .twitter svg {
+  fill: #1DA1F2;  /* Twitter Blue */
+}
+
+.footer .social-media .instagram svg {
+  fill: #E1306C;  /* Instagram Pink/Red */
+}
+
+.footer .social-media .facebook svg {
+  fill: #1877F2;  /* Facebook Blue */
+}
+
+.footer .social-media .linkedin svg {
+  fill: #0A66C2;  /* LinkedIn Blue */
+}
+
+/* optional: make text match icon */
+.footer .social-media .twitter,
+.footer .social-media .instagram,
+.footer .social-media .facebook,
+.footer .social-media .linkedin {
+  color: inherit; /* text uses default */
+}
+
+.footer .social-media a:hover {
+  opacity: 0.8;   /* simple hover effect */
+}
 
 
 
